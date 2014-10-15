@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wizard">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universal Design Bootstrap</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+</head>
+<body ng-controller="TabController as tab">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="page-header">
+          <h1>Universal Design Bootstrap <small>Pre-Alpha</small></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li ng-class="{ active: tab.isSelected(0) }"><a href ng-click="tab.setTab(0)">Overview</a></li>
+      <li ng-class="{ active: tab.isSelected(1) }"><a href ng-click="tab.setTab(1)">Course Aims</a></li>
+      <li ng-class="{ active: tab.isSelected(2), disabled: tab.isDisabled(1) }"><a href ng-click="tab.setTab(2)">Weekly Aims</a></li>
+      <li ng-class="{ active: tab.isSelected(3), disabled: tab.isDisabled(1) }"><a href ng-click="tab.setTab(3)">Weekly Aims</a></li>
+    </ul>
+  </div>
+  <div class="container" ng-show="tab.isSelected(0)">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>General Course Settings <small>{{ courseForm.name }}</small></h2>
+        <div class="lead">Here we'll set a few general overview details for your course.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <form name="courseForm" role="form">
+          <div class="form-group">
+            <label for="courseName">Course Name</label>
+            <input ng-model="courseForm.name" type="text" class="form-control" id="courseName" placeholder="Enter course name" novalidate>
+          </div>
+          <div class="form-group">
+            <label for="courseDescription">Course Description</label>
+            <textarea id="courseDescription" class="form-control" placeholder="Enter a description of your course (you can always change this later)" novalidate></textarea>
+          </div>
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-2">
+                  <label for="courseCategory">Category</label>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" ng-model="course.category" name="courseCategory" id="courseCategory1" value="weeks">
+                      Weeks
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" ng-model="course.category" name="courseCategory" id="courseCategory2" value="themes">
+                      Themes
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group">
+                    <label for="courseCategoryNumber">Number of {{ course.category | firstUpperCase}}</label>
+                    <input type="number" class="form-control" placeholder="1" novalidate>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container" ng-show="tab.isSelected(1)">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Course Aims <small>{{ courseForm.name }}</small></h2>
+        <div class="lead">Make up some aims for your course.</div>
+      </div>
+    </div>
+    <section ng-controller="OutcomeController as outcomes">
+      <div class="row">
+        <div class="col-lg-8">
+          <table class="table table-hover table-striped">
+            <tr ng-repeat="aim in outcomes.aims"><td><h5>{{ aim.name }}</h5></td><td align="right"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button> <button class="btn btn-danger" ng-click="outcomes.destroyAim($event)"><span class="glyphicon glyphicon-remove"></span></button></td></tr>
+            <tr><td>{{ aimForm.name }}</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <form name="aimForm" class="form-horizontal" role="form">
+            <!--<label for="aimName">New Aim</label>-->
+            <input ng-model="aimForm.name" type="text" class="form-control input-lg" id="aimName" placeholder="Enter a new course aim" novalidate>
+          </form>
+        </div>
+        <div class="col-lg-2">
+          <button type="button" class="btn btn-success input-lg"><span class="glyphicon glyphicon-plus-sign"></span> Add New Aim</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container" ng-show="tab.isSelected(2)">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>General Course Settings</h2>
+        <div class="lead">A few general overview details for your course.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container" ng-show="tab.isSelected(3)">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>General Course Settings</h2>
+        <div class="lead">A few general overview details for your course.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container hide">
+    <div class="row">
+      <div class="col-lg-8">
+        <span class="label label-default">Course Completion</span>
+        <div class="progress">
+          10% Complete
+          <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+            <span class="sr-only">10% Complete</span>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script src="bower_components/angularjs/angular.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="public/javascripts/main.js"></script>
+</body>
+</html>

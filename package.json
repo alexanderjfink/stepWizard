@@ -1,0 +1,50 @@
+{
+  "name": "stepWizard",
+  "version": "0.1.0",
+  "description": "A wizard that steps you through the process of designing a course",
+  "main": "./server/server",
+  "keywords": [
+    "learning",
+    "teaching",
+    "education",
+    "higher education",
+    "highered",
+    "syllabus",
+    "course",
+    "mooc",
+    "online",
+    "universal",
+    "design"
+  ],
+  "bugs": {
+    "url": "https://github.com/alexanderjfink/UniversalDesignBootstrap/issues"
+  },
+  "main": "./server/server",
+  "dependencies": {
+    "consolidate": "~0.10.0",
+    "handlebars": "~1.3.0",
+    "hapi": "^6.9.0",
+    "hapi-restify": "^0.1.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.1",
+    "grunt-nodemon": "^0.0.9",
+    "grunt-contrib-requirejs": "^0.4.0",
+    "grunt-contrib-jshint": "^0.3.0",
+    "grunt-shell": "^0.3.1",
+    "grunt-contrib-less": "^0.6.4",
+    "grunt-mocha-test": "^0.6.2",
+    "node-less": "latest",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-less": "latest",
+    "mongoose": "latest",
+    "superagent": "^0.15.4",
+    "expect.js": "^0.2.0",
+    "uglify-js": "^2.2.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "UniversalDesignBootstrap",
+  "version": "0.0.0",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "Alex Fink"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.25",
+    "angular-ui-router": "~0.2.11",
+    "angular-formus": "~0.0.2"
+  }
+}
